@@ -1,27 +1,20 @@
 let hellomes = {
     msg: "Hello world"
 }
-let echoing = {
-    id: "dog"
-}
-let nums = {
-    numbers:[1,2,3]
-}
+
 
 const express = require("express");
 const app = express()
 const port = 3000
 
-app.get("/hello",(reg, res) =>{
+app.get("/hello",(req, res) =>{
     res.send(hellomes);
 })
-app.get("/echo/:id",(reg, res) =>{
-    res.send(echoing);
+app.get("/echo/:id",(req, res) =>{
+    res.send({id: req.params.id});
 })
-app.post("/sum",(req , res) =>{
 
-})
-app.get("/", (reg , res) => {
+app.get("/", (req , res) => {
     res.send("Testing if this works or not");
 });
 
