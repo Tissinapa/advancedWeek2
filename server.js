@@ -3,6 +3,8 @@ let hellomes = {
 }
 
 
+
+
 const express = require("express");
 const app = express()
 const port = 3000
@@ -12,6 +14,18 @@ app.get("/hello",(req, res) =>{
 })
 app.get("/echo/:id",(req, res) =>{
     res.send({id: req.params.id});
+})
+
+
+
+app.post("/sum",(req, res) =>{
+    let numbers = [1, 2, 3]
+    let answer = 0
+    for (let i of numbers){
+        answer += i
+    }
+    console.log(answer)
+    res.send({sum: answer})
 })
 
 app.get("/", (req , res) => {
